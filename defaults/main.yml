@@ -1,0 +1,5 @@
+---
+# defaults file for adrianjuhl.rhsso_cli
+
+adrianjuhl__rhsso_cli__install_bin_dir: "/usr/local/bin"
+adrianjuhl__rhsso_cli__rhsso_cli_executable_name: "rhsso_cli"

@@ -1,0 +1,10 @@
+---
+# From ansible-galaxy (a release tag)
+- src: adrianjuhl.rhsso_cli
+  version: 0.1.0
+
+# From a branch from the github repo
+#- src: https://github.com/adrianjuhl/ansible-role-rhsso-cli
+#  scm: git
+#  version: 0.1.0-develop
+#  name: adrianjuhl.rhsso_cli

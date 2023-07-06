@@ -1,0 +1,9 @@
+---
+- name: Install rhsso_cli
+  hosts: localhost
+  tasks:
+    - name: Install rhsso_cli
+      include_role:
+        name: adrianjuhl.rhsso_cli
+        apply:
+          become: "{{ local_playbook__install_rhsso_cli__requires_become }}"

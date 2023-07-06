@@ -1,0 +1,26 @@
+---
+# tasks file for adrianjuhl.rhsso_cli
+
+- name: Setting facts
+  set_fact:
+    adrianjuhl__rhsso_cli__install_dir:              "{{ adrianjuhl__rhsso_cli__install_bin_dir }}/{{ adrianjuhl__rhsso_cli__rhsso_cli_executable_name }}.d"
+    adrianjuhl__rhsso_cli__rhsso_cli_sh_file_path:   "{{ adrianjuhl__rhsso_cli__install_bin_dir }}/{{ adrianjuhl__rhsso_cli__rhsso_cli_executable_name }}.d/{{ adrianjuhl__rhsso_cli__rhsso_cli_executable_name }}.sh"
+    adrianjuhl__rhsso_cli__rhsso_cli_link_file_path: "{{ adrianjuhl__rhsso_cli__install_bin_dir }}/{{ adrianjuhl__rhsso_cli__rhsso_cli_executable_name }}"
+
+- name: Create rhsso_cli install directory
+  ansible.builtin.file:
+    dest: "{{ adrianjuhl__rhsso_cli__install_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Copy rhsso_cli.sh into place
+  copy:
+    src: rhsso_cli.sh
+    dest: "{{ adrianjuhl__rhsso_cli__rhsso_cli_sh_file_path }}"
+    mode: "0755"
+
+- name: Configure a link for rhsso_cli
+  ansible.builtin.file:
+    src: "{{ adrianjuhl__rhsso_cli__rhsso_cli_sh_file_path }}"
+    dest: "{{ adrianjuhl__rhsso_cli__rhsso_cli_link_file_path }}"
+    state: link
